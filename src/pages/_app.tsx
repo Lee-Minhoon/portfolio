@@ -1,6 +1,16 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import Canvas from "@/components/Canvas";
+import Header from "@/components/Header";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <>
+      {/* <Header /> */}
+      <Canvas />
+      <Component {...pageProps} />
+    </>
+  );
+};
+
+export default App;
