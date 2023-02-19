@@ -16,11 +16,10 @@ export const createCamera = (scene: Scene) => {
   camera.lowerBetaLimit = 0.1;
   camera.upperBetaLimit = Math.PI / 2;
 
-  camera.inputs.attached.pointers.buttons = [1, 2];
+  const pointers: any = camera.inputs.attached.pointers;
+  pointers.buttons = [1, 2];
 
   camera.attachControl(true, true, 1);
-
-  console.log(camera);
 
   return camera;
 };

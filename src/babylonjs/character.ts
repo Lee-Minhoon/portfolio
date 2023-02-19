@@ -104,11 +104,13 @@ class CharacterController {
       this.turn();
     }
 
+    this.animate();
+
     // if (jump) {
     //   this._anims["jump"].weight = 1;
     //   console.log(this._anims["jump"].fromFrame, this._anims["jump"].toFrame);
     // } else {
-    //   this.animate();
+    // this.animate();
     // }
   }
 
