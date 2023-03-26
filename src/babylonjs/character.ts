@@ -1,4 +1,4 @@
-import { animations, Animations, figures } from "@/constants/character";
+import { Animation, Animations, figures } from "@/constants/character";
 import {
   Animatable,
   AbstractMesh,
@@ -16,6 +16,7 @@ import {
 } from "@babylonjs/core";
 import { angle } from "@/constants/math";
 import { lerp, clamp } from "@/utilities/math";
+import { Entries } from "type-fest";
 
 class CharacterController {
   // systems
@@ -29,7 +30,7 @@ class CharacterController {
   private _target: TransformNode;
   private _avatar: AbstractMesh;
   private _skeleton: Skeleton;
-  private _anims: { [key: Animations]: Animatable };
+  private _anims: { [key in Animations]: Animatable };
 
   // states
   private _animation: Animations = "idle";
@@ -58,15 +59,17 @@ class CharacterController {
     this._camera.parent = this._target;
 
     // init animations
-    this._anims = {
-      [animations.IDLE]: getAnimation(scene, this._skeleton, animations.IDLE),
-      [animations.WALK]: getAnimation(scene, this._skeleton, animations.WALK),
-      [animations.RUN]: getAnimation(scene, this._skeleton, animations.RUN),
-      [animations.JUMP]: getAnimation(scene, this._skeleton, animations.JUMP),
-      [animations.SPRINT]: getAnimation(scene, this._skeleton, animations.SPRINT),
-      [animations.FLY]: getAnimation(scene, this._skeleton, animations.FLY),
-    };
-    this._anims[animations.IDLE].weight = 1;
+    this._anims = (Object.entries(Animation) as Entries<typeof Animation>).reduce(
+      (prev, [_, value]) => {
+        const { from, to } = this._skeleton.getAnimationRange(value) as AnimationRange;
+        return {
+          ...prev,
+          [value]: scene.beginWeightedAnimation(this._skeleton, from + 1, to, 0, true),
+        };
+      },
+      {} as { [key in Animations]: Animatable },
+    );
+    this._anims[Animation.IDLE].weight = 1;
 
     // register event listener
     scene.registerBeforeRender(() => this.update());
@@ -86,19 +89,15 @@ class CharacterController {
     const z = up - down;
     const x = right - left;
     this._radian = -(this._camera.alpha + Math.atan2(x, z)) % angle.COMPLETE;
-    this._animation = animations.IDLE;
+    this._animation = Animation.IDLE;
 
     if (z || x) {
       if (!sprint) {
-        this._animation = animations.RUN;
-        this._speed = lerp(this._speed, figures.speed.RUN, this._anims[animations.RUN].weight);
+        this._animation = Animation.RUN;
+        this._speed = lerp(this._speed, figures.speed.RUN, this._anims[Animation.RUN].weight);
       } else {
-        this._animation = animations.SPRINT;
-        this._speed = lerp(
-          this._speed,
-          figures.speed.SPRINT,
-          this._anims[animations.SPRINT].weight,
-        );
+        this._animation = Animation.SPRINT;
+        this._speed = lerp(this._speed, figures.speed.SPRINT, this._anims[Animation.SPRINT].weight);
       }
       this.move();
       this.turn();
@@ -138,8 +137,3 @@ class CharacterController {
 }
 
 export default CharacterController;
-
-const getAnimation = (scene: Scene, skeleton: Skeleton, name: Animations) => {
-  const range = skeleton.getAnimationRange(name) as AnimationRange;
-  return scene.beginWeightedAnimation(skeleton, range.from + 1, range.to, 0, true);
-};

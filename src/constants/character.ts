@@ -1,15 +1,15 @@
 export const CHARACTER_SOURCE = "akai.babylon";
 
-export const animations = {
+export const Animation = {
   IDLE: "idle",
   WALK: "walk",
   RUN: "run",
   SPRINT: "sprint",
   JUMP: "jump",
   FLY: "fly",
-};
+} as const;
 
-export type Animations = (typeof animations)[keyof typeof animations];
+export type Animations = (typeof Animation)[keyof typeof Animation];
 
 export const figures = {
   speed: {
