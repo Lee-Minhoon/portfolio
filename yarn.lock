@@ -14,10 +14,39 @@
   resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-5.46.0.tgz#e6d84906025a6f6f0b805a0f1fb382a36801aef1"
   integrity sha512-6PCaBByAxeXjM+lX14K2Do1pVbsOeQPA4TCd/Ve+1Gcr2CFKsfPb7c7mtFB90fTlWkN6+tE3zRDeu1ZdvSVKPQ==
 
+"@babylonjs/gui-editor@^5.53.0":
+  version "5.53.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/gui-editor/-/gui-editor-5.53.0.tgz#7234cab3cfff13e150b2446e43e2d6281b90a4a3"
+  integrity sha512-z/4Lt3ZovM5e57t+LO6OmRM49hkDQ1Ep5BZk+s2w3tAMZ97wHbJR97Q6VtzaTSOy4YUCvLEztopA8JDzwLSLoQ==
+
+"@babylonjs/gui@^5.53.0":
+  version "5.53.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/gui/-/gui-5.53.0.tgz#a5eb441db73fa1539c806a6ff9156344cd285f19"
+  integrity sha512-8l0hIYh7UzlLAaYceNMBkMnQY0mwxzYznRLSZYD+dD1QB7DA1tCWHwGYqyclybTRy0Uh2KI0W0Uokv2MErBkSQ==
+
+"@babylonjs/inspector@^5.53.0":
+  version "5.53.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/inspector/-/inspector-5.53.0.tgz#107b29cdaa06ee7ab0be76851052c17a804ea104"
+  integrity sha512-Poq2rl/N+ciFArSlS4ZadnSqdH6iwWGqlT49JvEa/ZzcWQ7GpuoK4TcReZ7SUawNsQ1gP5UIyPGQp2u9bQ3W8A==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^6.1.0"
+    "@fortawesome/free-regular-svg-icons" "^6.0.0"
+    "@fortawesome/free-solid-svg-icons" "^6.0.0"
+
+"@babylonjs/loaders@^5.53.0":
+  version "5.53.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/loaders/-/loaders-5.53.0.tgz#b40ae5c656bb7a8e929bec090609f8d62f56122f"
+  integrity sha512-4jEiFND5bs2TENTSTe2280B/kRP1Mop4ZAEOF0iU9ji7HC9W4TdBBKfAOVqpASdpBArD0AIz3qLmkG7FWLmmwg==
+
 "@babylonjs/materials@^5.46.0":
   version "5.46.0"
   resolved "https://registry.yarnpkg.com/@babylonjs/materials/-/materials-5.46.0.tgz#76371d135714fa97c37796fcb09bd3d01742cc04"
   integrity sha512-LSC7AQLw8LImcu+xXwZHsSVpt1+9kdXZ53WzzGAp5XbdWa+g01AfEmjCBNhTEer5R4HEeLDals+ep2mU8KdGHw==
+
+"@babylonjs/serializers@^5.53.0":
+  version "5.53.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/serializers/-/serializers-5.53.0.tgz#b5f4a667677e08cba49f47b3470bcc6f17bd4450"
+  integrity sha512-TTZtqYn4SKo7CWHlJZOlqEqg5t4OdjzGh8JCx38fLSWnK+xbFGT3tKhYSqZdwPBZl+vF6D6QE9UctMFRNgJLuA==
 
 "@eslint/eslintrc@^1.4.1":
   version "1.4.1"
@@ -33,6 +62,32 @@
     js-yaml "^4.1.0"
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
+
+"@fortawesome/fontawesome-common-types@6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.4.0.tgz#88da2b70d6ca18aaa6ed3687832e11f39e80624b"
+  integrity sha512-HNii132xfomg5QVZw0HwXXpN22s7VBHQBv9CeOu9tfJnhsWQNd2lmTNi8CSrnw5B+5YOmzu1UoPAyxaXsJ6RgQ==
+
+"@fortawesome/fontawesome-svg-core@^6.1.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.4.0.tgz#3727552eff9179506e9203d72feb5b1063c11a21"
+  integrity sha512-Bertv8xOiVELz5raB2FlXDPKt+m94MQ3JgDfsVbrqNpLU9+UE2E18GKjLKw+d3XbeYPqg1pzyQKGsrzbw+pPaw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.0"
+
+"@fortawesome/free-regular-svg-icons@^6.0.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.4.0.tgz#cacc53bd8d832d46feead412d9ea9ce80a55e13a"
+  integrity sha512-ZfycI7D0KWPZtf7wtMFnQxs8qjBXArRzczABuMQqecA/nXohquJ5J/RCR77PmY5qGWkxAZDxpnUFVXKwtY/jPw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.0"
+
+"@fortawesome/free-solid-svg-icons@^6.0.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.4.0.tgz#48c0e790847fa56299e2f26b82b39663b8ad7119"
+  integrity sha512-kutPeRGWm8V5dltFP1zGjQOEAzaLZj4StdQhWVZnfGFCvAPVvHh8qk5bRrU4KXnRRRNni5tKQI9PBAdI6MP8nQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.0"
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
@@ -179,6 +234,11 @@
   integrity sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==
   dependencies:
     tslib "^2.4.0"
+
+"@types/cannon@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@types/cannon/-/cannon-0.1.8.tgz#fce4bc22a245d644747707c51cb3d3025d3f6163"
+  integrity sha512-aabgPL9ho1Qov3mMnBJCTG+vTWhFrhRi/5INwsZCPhf3BwabRWz53ryffCDzRSlV4T0f4eQS0OQo5Y/RCZsngQ==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -423,6 +483,11 @@ caniuse-lite@^1.0.30001406:
   version "1.0.30001451"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001451.tgz#2e197c698fc1373d63e1406d6607ea4617c613f1"
   integrity sha512-XY7UbUpGRatZzoRft//5xOa69/1iGJRBlrieH6QYrkKLIFn3m7OVEJ81dSrKoy2BnKsdbX5cLrOispZNYo9v2w==
+
+cannon@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/cannon/-/cannon-0.6.2.tgz#1e7bc72dd5841982f3c104c2bc578bfa4fb1c572"
+  integrity sha512-n/7wWSXr8KOSvjad2x0fJHgpMepKjOKi+NdSnjfYyijoDBZnp4JQKgPcpv28jlXoWM+N9zVYU09J0A6Qxx+Y7w==
 
 chalk@^4.0.0:
   version "4.1.2"

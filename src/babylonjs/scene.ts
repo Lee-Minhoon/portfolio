@@ -1,6 +1,7 @@
 import {
   ArcRotateCamera,
   AxesViewer,
+  CannonJSPlugin,
   Color3,
   CubeTexture,
   Engine,
@@ -15,11 +16,18 @@ import {
 import { GridMaterial } from "@babylonjs/materials";
 
 export class Scene extends _Scene {
+  metadata: {
+    engine: Engine;
+    camera: ArcRotateCamera;
+    sky: Mesh;
+    ground: Mesh;
+    axes: AxesViewer;
+  };
+
   constructor(canvas: HTMLCanvasElement, options?: SceneOptions) {
     const engine = new Engine(canvas, true, {}, true);
 
     super(engine, { ...options, useGeometryUniqueIdsMap: true });
-    this.useRightHandedSystem = true;
     this.freezeMaterials();
 
     engine.runRenderLoop(() => {
@@ -38,6 +46,8 @@ export class Scene extends _Scene {
     const axes = this.createAxes();
 
     this.metadata = { engine, camera, sky, ground, axes };
+
+    // this.enablePhysics(new Vector3(0, -9.81, 0), new CannonJSPlugin());
   }
 
   createSky() {
