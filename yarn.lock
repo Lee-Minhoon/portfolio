@@ -123,6 +123,16 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@babylonjs/core@^7.12.0":
+  version "7.12.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-7.12.0.tgz#1fe9744ce6db26112ca40ea0d8a43c5468ebba42"
+  integrity sha512-g/hB1BvS1VepJe4X3sSyVJ6p+GF/3bS8t9qXy6QfnF28YhLUmjUdwUpugnSUJPPMoHcBd/ETm9cYdeuJHO9/yg==
+
+"@babylonjs/materials@^7.12.0":
+  version "7.12.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/materials/-/materials-7.12.0.tgz#55c9dba64088363a2f8b623c164187dca004aa3c"
+  integrity sha512-sfyJDypTomwl7ycqncrXxAenRlhB1XKGKdaRVcBBvK7q+sEiV3IxBakeSiAiwxorbqRJFjmqgqpYJoGlUt/Z1w==
+
 "@chakra-ui/accordion@2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/accordion/-/accordion-2.3.1.tgz#a326509e286a5c4e8478de9bc2b4b05017039e6b"

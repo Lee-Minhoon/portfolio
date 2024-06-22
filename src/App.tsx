@@ -1,9 +1,10 @@
-import { ChakraProvider, Heading } from "@chakra-ui/react";
+import { WorldCanvas } from "@/components";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
     <ChakraProvider>
-      <Heading color={"teal.500"}>Hello, World!</Heading>
+      <WorldCanvas />
     </ChakraProvider>
   );
 }
