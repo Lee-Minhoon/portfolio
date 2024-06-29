@@ -9,7 +9,7 @@ import {
   Vector3,
 } from "@babylonjs/core";
 import { GridMaterial } from "@babylonjs/materials";
-import { Space } from "./meshes";
+import { Space } from "./space";
 
 export default class WorldScene {
   private _engine: Engine;

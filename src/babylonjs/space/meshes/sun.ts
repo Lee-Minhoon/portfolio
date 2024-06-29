@@ -31,14 +31,14 @@ const coronaGradients = [
 ];
 
 export default class Sun {
-  private static readonly Radian = 69.634;
+  private static readonly Radius = 69.634;
 
   private _mesh: Mesh;
 
   constructor(scene: Scene) {
     const sun = MeshBuilder.CreateSphere(
       "sun",
-      { diameter: Sun.Radian },
+      { diameter: Sun.Radius },
       scene
     );
 
@@ -76,7 +76,7 @@ export default class Sun {
     );
 
     const sunEmitter = new SphereParticleEmitter();
-    sunEmitter.radius = Sun.Radian / 2.0;
+    sunEmitter.radius = Sun.Radius / 2.0;
     sunEmitter.radiusRange = 0;
 
     [surfaceParticles, flareParticles, coronaParticles].forEach((particles) => {
