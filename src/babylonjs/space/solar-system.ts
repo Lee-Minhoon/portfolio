@@ -1,0 +1,80 @@
+const solarSystem = {
+  planets: [
+    {
+      name: "Earth",
+      radius: 6371,
+      revolutionPeriod: 365.25,
+      majorAxis: 150000000,
+      eccentricity: 0.0167,
+      texture: "textures/space/earth.webp",
+      satellites: [
+        {
+          name: "Moon",
+          radius: 1737.1,
+          revolutionPeriod: 27.32,
+          majorAxis: 384400,
+          eccentricity: 0.0549,
+          texture: "textures/space/moon.jpg",
+        },
+      ],
+    },
+    {
+      name: "Mercury",
+      radius: 2439.7,
+      revolutionPeriod: 87.97,
+      majorAxis: 57900000,
+      eccentricity: 0.2056,
+      texture: "textures/space/mercury.jpg",
+    },
+    {
+      name: "Venus",
+      radius: 6051.8,
+      revolutionPeriod: 224.7,
+      majorAxis: 108000000,
+      eccentricity: 0.0068,
+      texture: "textures/space/venus.jpg",
+    },
+    {
+      name: "Mars",
+      radius: 3389.5,
+      revolutionPeriod: 686.98,
+      majorAxis: 228000000,
+      eccentricity: 0.0934,
+      texture: "textures/space/mars.jpg",
+    },
+    {
+      name: "Jupiter",
+      radius: 69911,
+      revolutionPeriod: 4332.59,
+      majorAxis: 778000000,
+      eccentricity: 0.0489,
+      texture: "textures/space/jupiter.jpg",
+    },
+    {
+      name: "Saturn",
+      radius: 58232,
+      revolutionPeriod: 10759.22,
+      majorAxis: 1427000000,
+      eccentricity: 0.0565,
+      texture: "textures/space/saturn.jpg",
+    },
+    {
+      name: "Uranus",
+      radius: 25362,
+      revolutionPeriod: 30685.4,
+      majorAxis: 2871000000,
+      eccentricity: 0.0463,
+      texture: "textures/space/uranus.jpg",
+    },
+    {
+      name: "Neptune",
+      radius: 24622,
+      revolutionPeriod: 60190,
+      majorAxis: 4504000000,
+      eccentricity: 0.0086,
+      texture: "textures/space/neptune.jpg",
+    },
+  ],
+};
+
+export default solarSystem;

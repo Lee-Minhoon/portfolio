@@ -25,7 +25,7 @@ export default class WorldScene {
     this._camera = this.createCamera();
     // this._lights = this.createLights();
     this._meshes = this.createMeshes();
-    this._ground = this.createGround();
+    // this._ground = this.createGround();
 
     this._engine.runRenderLoop(() => {
       this._scene.render();

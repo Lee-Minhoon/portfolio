@@ -1,8 +1,6 @@
 import {
   Color3,
   Color4,
-  Mesh,
-  MeshBuilder,
   ParticleSystem,
   PointLight,
   Scene,
@@ -11,6 +9,7 @@ import {
   Texture,
   Vector3,
 } from "@babylonjs/core";
+import Celestial from "./celestial";
 
 const surfaceGradients = [
   { gradient: 0, color: new Color4(0.8509, 0.4784, 0.1019, 0.0) },
@@ -30,29 +29,21 @@ const coronaGradients = [
   { gradient: 1.0, color: new Color4(0.3207, 0.0713, 0.0075, 0.0) },
 ];
 
-export default class Sun {
-  private static readonly Radius = 69.634;
-
-  private _mesh: Mesh;
+export default class Sun extends Celestial {
+  private static readonly Radius = 696340;
 
   constructor(scene: Scene) {
-    const sun = MeshBuilder.CreateSphere(
-      "sun",
-      { diameter: Sun.Radius },
-      scene
-    );
+    super(scene, "sun", Sun.Radius);
 
     const sunLight = new PointLight("sunLight", new Vector3(0, 0, 0), scene);
     sunLight.diffuse = new Color3(0.8, 0.8, 0.6);
     sunLight.intensity = 2;
-    sunLight.parent = sun;
+    sunLight.parent = this._mesh;
 
-    // set the sun's material
     const sunMaterial = new StandardMaterial("sunMaterial", scene);
     sunMaterial.emissiveColor = new Color3(0.3773, 0.093, 0.0266);
-    sun.material = sunMaterial;
+    this._mesh.material = sunMaterial;
 
-    // create the surface particles
     const surfaceParticles = new ParticleSystem(
       "surfaceParticles",
       1600,
@@ -60,23 +51,27 @@ export default class Sun {
     );
     const flareParticles = new ParticleSystem("flareParticles", 20, scene);
     const coronaParticles = new ParticleSystem("coronaParticles", 600, scene);
-    // const starsParticles = new BABYLON.ParticleSystem("starsParticles", 500, scene);
 
+    // "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunSurface.png"
     surfaceParticles.particleTexture = new Texture(
-      "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunSurface.png",
+      "textures/space/sun/surface.png",
       scene
     );
+
+    // "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunFlare.png"
     flareParticles.particleTexture = new Texture(
-      "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunFlare.png",
+      "textures/space/sun/flare.png",
       scene
     );
+
+    // https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_Star.png
     coronaParticles.particleTexture = new Texture(
-      "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_Star.png",
+      "textures/space/sun/corona.png",
       scene
     );
 
     const sunEmitter = new SphereParticleEmitter();
-    sunEmitter.radius = Sun.Radius / 2.0;
+    sunEmitter.radius = Celestial.LerpRadius(Sun.Radius) / 2.0;
     sunEmitter.radiusRange = 0;
 
     [surfaceParticles, flareParticles, coronaParticles].forEach((particles) => {
@@ -86,7 +81,7 @@ export default class Sun {
       particles.minInitialRotation = -2 * Math.PI;
       particles.maxInitialRotation = 2 * Math.PI;
 
-      particles.emitter = sun;
+      particles.emitter = this._mesh;
       particles.particleEmitterType = sunEmitter;
 
       particles.blendMode = ParticleSystem.BLENDMODE_ADD;
@@ -151,11 +146,5 @@ export default class Sun {
     surfaceParticles.start();
     flareParticles.start();
     coronaParticles.start();
-
-    this._mesh = sun;
-  }
-
-  get mesh() {
-    return this._mesh;
   }
 }

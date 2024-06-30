@@ -1,41 +1,51 @@
 import { Scene } from "@babylonjs/core";
-import {
-  Earth,
-  Jupiter,
-  Mars,
-  Mercury,
-  Neptune,
-  Saturn,
-  Sun,
-  Uranus,
-  Venus,
-} from "./meshes";
+import Planet from "./planet";
+import Satellite from "./satellite";
+import solarSystem from "./solar-system";
+import Stars from "./stars";
+import Sun from "./sun";
 
 export default class Space {
-  public static readonly ScaleFactor = 20;
-  public static readonly OrbitalSpeedFactor = 10;
-
   static create(scene: Scene) {
     const sun = new Sun(scene);
-    const earth = new Earth(scene);
-    const mercury = new Mercury(scene);
-    const venus = new Venus(scene);
-    const mars = new Mars(scene);
-    const jupiter = new Jupiter(scene);
-    const saturn = new Saturn(scene);
-    const uranos = new Uranus(scene);
-    const neptune = new Neptune(scene);
+    const stars = new Stars(scene);
+    const planets = solarSystem.planets
+      .map((planet) => {
+        const meshes = [];
+        const planetInstance = new Planet(
+          scene,
+          planet.name,
+          planet.radius,
+          planet.texture
+        );
+        planetInstance.revolution(
+          sun,
+          planet.revolutionPeriod,
+          planet.majorAxis,
+          planet.eccentricity
+        );
+        meshes.push(planetInstance.mesh);
+        if (planet.satellites) {
+          planet.satellites.forEach((satellite) => {
+            const satelliteInstance = new Satellite(
+              scene,
+              satellite.name,
+              satellite.radius,
+              satellite.texture
+            );
+            satelliteInstance.revolution(
+              planetInstance,
+              satellite.revolutionPeriod,
+              satellite.majorAxis,
+              satellite.eccentricity
+            );
+            meshes.push(satelliteInstance.mesh);
+          });
+        }
+        return meshes;
+      })
+      .flat();
 
-    return [
-      sun.mesh,
-      earth.mesh,
-      mercury.mesh,
-      venus.mesh,
-      mars.mesh,
-      jupiter.mesh,
-      saturn.mesh,
-      uranos.mesh,
-      neptune.mesh,
-    ];
+    return [sun.mesh, ...planets, stars.mesh];
   }
 }
