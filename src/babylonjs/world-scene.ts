@@ -1,5 +1,7 @@
 import {
   ArcRotateCamera,
+  Color3,
+  Color4,
   Engine,
   GroundMesh,
   HemisphericLight,
@@ -22,6 +24,7 @@ export default class WorldScene {
   constructor(canvas: HTMLCanvasElement) {
     this._engine = new Engine(canvas, true);
     this._scene = new Scene(this._engine);
+    this._scene.clearColor = Color4.FromColor3(Color3.Black());
     this._camera = this.createCamera();
     // this._lights = this.createLights();
     this._meshes = this.createMeshes();

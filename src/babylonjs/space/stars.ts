@@ -14,7 +14,7 @@ export default class Stars {
   constructor(scene: Scene) {
     const stars = MeshBuilder.CreateBox("stars", { size: 0.01 }, scene);
 
-    const starsParticles = new ParticleSystem("starsParticles", 50000, scene);
+    const starsParticles = new ParticleSystem("starsParticles", 3000, scene);
     starsParticles.particleTexture = new Texture(
       "textures/space/star.png",
       scene
@@ -23,7 +23,7 @@ export default class Stars {
 
     const starsEmitter = new SphereParticleEmitter();
     starsEmitter.radius = 1000;
-    starsEmitter.radiusRange = 0.3;
+    starsEmitter.radiusRange = 0.5;
 
     starsParticles.emitter = stars;
     starsParticles.particleEmitterType = starsEmitter;

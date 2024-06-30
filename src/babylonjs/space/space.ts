@@ -1,4 +1,4 @@
-import { Scene } from "@babylonjs/core";
+import { MeshBuilder, Scene, StandardMaterial, Texture } from "@babylonjs/core";
 import Planet from "./planet";
 import Satellite from "./satellite";
 import solarSystem from "./solar-system";
@@ -7,6 +7,18 @@ import Sun from "./sun";
 
 export default class Space {
   static create(scene: Scene) {
+    const skybox = MeshBuilder.CreateBox("skybox", { size: 2500 }, scene);
+    const skyboxMaterial = new StandardMaterial("skybox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new Texture(
+      "textures/space/stars.jpg",
+      scene
+    );
+    skyboxMaterial.reflectionTexture.coordinatesMode =
+      Texture.FIXED_EQUIRECTANGULAR_MODE;
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
     const sun = new Sun(scene);
     const stars = new Stars(scene);
     const planets = solarSystem.planets
@@ -46,6 +58,6 @@ export default class Space {
       })
       .flat();
 
-    return [sun.mesh, ...planets, stars.mesh];
+    return [skybox, sun.mesh, ...planets, stars.mesh];
   }
 }
