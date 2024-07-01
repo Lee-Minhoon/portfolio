@@ -8,6 +8,9 @@ import {
   Texture,
 } from "@babylonjs/core";
 
+/**
+ * https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_Star.png
+ */
 export default class Stars {
   private _mesh: Mesh;
 

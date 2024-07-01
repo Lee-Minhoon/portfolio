@@ -38,9 +38,9 @@ export default class WorldScene {
   private createCamera() {
     const camera = new ArcRotateCamera(
       "camera",
-      0,
-      Math.PI / 4,
-      10,
+      Math.PI + Math.PI / 4,
+      Math.PI / 2.4,
+      1000,
       Vector3.Zero(),
       this._scene
     );

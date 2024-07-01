@@ -29,8 +29,13 @@ const coronaGradients = [
   { gradient: 1.0, color: new Color4(0.3207, 0.0713, 0.0075, 0.0) },
 ];
 
+/**
+ * https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunSurface.png
+ * https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunFlare.png
+ * https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_Star.png
+ */
 export default class Sun extends Celestial {
-  private static readonly Radius = 696340;
+  private static readonly Radius = 70;
 
   constructor(scene: Scene) {
     super(scene, "sun", Sun.Radius);
@@ -52,26 +57,21 @@ export default class Sun extends Celestial {
     const flareParticles = new ParticleSystem("flareParticles", 20, scene);
     const coronaParticles = new ParticleSystem("coronaParticles", 600, scene);
 
-    // "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunSurface.png"
     surfaceParticles.particleTexture = new Texture(
       "textures/space/sun/surface.png",
       scene
     );
-
-    // "https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_SunFlare.png"
     flareParticles.particleTexture = new Texture(
       "textures/space/sun/flare.png",
       scene
     );
-
-    // https://raw.githubusercontent.com/PatrickRyanMS/BabylonJStextures/master/ParticleSystems/Sun/T_Star.png
     coronaParticles.particleTexture = new Texture(
       "textures/space/sun/corona.png",
       scene
     );
 
     const sunEmitter = new SphereParticleEmitter();
-    sunEmitter.radius = Celestial.LerpRadius(Sun.Radius) / 2.0;
+    sunEmitter.radius = Sun.Radius / 2.0;
     sunEmitter.radiusRange = 0;
 
     [surfaceParticles, flareParticles, coronaParticles].forEach((particles) => {

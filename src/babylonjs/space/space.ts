@@ -5,6 +5,10 @@ import solarSystem from "./solar-system";
 import Stars from "./stars";
 import Sun from "./sun";
 
+/**
+ * https://www.solarsystemscope.com/textures/
+ * https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg
+ */
 export default class Space {
   static create(scene: Scene) {
     const skybox = MeshBuilder.CreateBox("skybox", { size: 2500 }, scene);
