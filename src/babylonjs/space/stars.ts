@@ -17,7 +17,7 @@ export default class Stars {
   constructor(scene: Scene) {
     const stars = MeshBuilder.CreateBox("stars", { size: 0.01 }, scene);
 
-    const starsParticles = new ParticleSystem("starsParticles", 3000, scene);
+    const starsParticles = new ParticleSystem("starsParticles", 1000, scene);
     starsParticles.particleTexture = new Texture(
       "textures/space/star.png",
       scene
@@ -42,8 +42,8 @@ export default class Stars {
 
     starsParticles.blendMode = ParticleSystem.BLENDMODE_STANDARD;
 
-    starsParticles.minEmitPower = 0.0;
-    starsParticles.maxEmitPower = 0.0;
+    starsParticles.minEmitPower = -1.0;
+    starsParticles.maxEmitPower = 1.0;
 
     starsParticles.start();
 

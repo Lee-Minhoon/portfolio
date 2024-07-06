@@ -1,4 +1,5 @@
 import { MeshBuilder, Scene, StandardMaterial, Texture } from "@babylonjs/core";
+import Comets from "./comets";
 import Planet from "./planet";
 import Satellite from "./satellite";
 import solarSystem from "./solar-system";
@@ -25,6 +26,7 @@ export default class Space {
 
     const sun = new Sun(scene);
     const stars = new Stars(scene);
+    const comets = new Comets(scene);
     const planets = solarSystem.planets
       .map((planet) => {
         const meshes = [];
@@ -62,6 +64,6 @@ export default class Space {
       })
       .flat();
 
-    return [skybox, sun.mesh, ...planets, stars.mesh];
+    return [skybox, sun.mesh, ...planets, stars.mesh, comets.mesh];
   }
 }
