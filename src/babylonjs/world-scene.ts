@@ -30,6 +30,12 @@ export default class WorldScene {
     this._meshes = this.createMeshes();
     // this._ground = this.createGround();
 
+    const onResize = () => {
+      this._engine.resize();
+    };
+
+    window.addEventListener("resize", onResize);
+
     this._engine.runRenderLoop(() => {
       this._scene.render();
     });
