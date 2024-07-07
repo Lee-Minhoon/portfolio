@@ -163,6 +163,17 @@ const solarSystem = {
        * https://www.solarsystemscope.com/textures/download/2k_saturn.jpg
        */
       texture: `${textureBasePath}/saturn/saturn.jpg`,
+      rings: [
+        {
+          innerRadius: 74600,
+          outerRadius: 136775,
+          /**
+           * https://www.solarsystemscope.com/textures/
+           * https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png
+           */
+          texture: `${textureBasePath}/saturn/ring.png`,
+        },
+      ],
       satellites: [
         {
           name: "Mimas",

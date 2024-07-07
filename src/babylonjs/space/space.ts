@@ -1,6 +1,7 @@
 import { MeshBuilder, Scene, StandardMaterial, Texture } from "@babylonjs/core";
 import Comets from "./comets";
 import Planet from "./planet";
+import Ring from "./ring";
 import Satellite from "./satellite";
 import solarSystem from "./solar-system";
 import Stars from "./stars";
@@ -43,6 +44,19 @@ export default class Space {
           planet.eccentricity
         );
         meshes.push(planetInstance.mesh);
+        if (planet.rings) {
+          planet.rings.forEach((ring) => {
+            const ringInstance = new Ring(
+              scene,
+              `${planet.name}-ring`,
+              ring.innerRadius,
+              ring.outerRadius,
+              ring.texture
+            );
+            ringInstance.mesh.parent = planetInstance.mesh;
+            meshes.push(ringInstance.mesh);
+          });
+        }
         if (planet.satellites) {
           planet.satellites.forEach((satellite) => {
             const satelliteInstance = new Satellite(
