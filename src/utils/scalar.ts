@@ -1,8 +1,15 @@
 import { Scalar } from "@babylonjs/core";
 
 export function normalizeLogScale(value: number, min: number, max: number) {
-  const log = Math.log10(value);
-  const minLog = Math.log10(min);
-  const maxLog = Math.log10(max);
-  return Scalar.Normalize(log, minLog, maxLog);
+  return Scalar.Normalize(Math.log10(value), Math.log10(min), Math.log10(max));
+}
+
+export function lerpLogScale(
+  start: number,
+  end: number,
+  value: number,
+  min: number,
+  max: number
+) {
+  return Scalar.Lerp(start, end, normalizeLogScale(value, min, max));
 }

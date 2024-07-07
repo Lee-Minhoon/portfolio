@@ -1,5 +1,5 @@
-import { normalizeLogScale } from "@/utils";
-import { Scalar, Scene } from "@babylonjs/core";
+import { lerpLogScale } from "@/utils";
+import { Scene } from "@babylonjs/core";
 import Celestial from "./celestial";
 import solarSystem from "./solar-system";
 
@@ -35,28 +35,22 @@ export default class Satellite extends Celestial {
     )
   );
 
-  private static LerpRadius(radius: number) {
-    return Scalar.Lerp(
-      3,
-      6,
-      normalizeLogScale(radius, Satellite.MinRadius, Satellite.MaxRadius)
-    );
+  public static LerpRadius(radius: number) {
+    return lerpLogScale(3, 6, radius, Satellite.MinRadius, Satellite.MaxRadius);
   }
 
-  private static LerpDistance(distance: number) {
-    return Scalar.Lerp(
+  public static LerpDistance(distance: number) {
+    return lerpLogScale(
       30,
       70,
-      normalizeLogScale(distance, Satellite.MinDistance, Satellite.MaxDistance)
+      distance,
+      Satellite.MinDistance,
+      Satellite.MaxDistance
     );
   }
 
-  private static LerpPeriod(period: number) {
-    return Scalar.Lerp(
-      4,
-      6,
-      normalizeLogScale(period, Satellite.MinPeriod, Satellite.MaxPeriod)
-    );
+  public static LerpPeriod(period: number) {
+    return lerpLogScale(4, 6, period, Satellite.MinPeriod, Satellite.MaxPeriod);
   }
 
   constructor(scene: Scene, name: string, radius: number, texture?: string) {
