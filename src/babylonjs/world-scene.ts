@@ -51,6 +51,8 @@ export default class WorldScene {
       this._scene
     );
     camera.attachControl(true, false, 0);
+    camera.panningSensibility = 10;
+    camera.wheelPrecision = 1;
     return camera;
   }
 
