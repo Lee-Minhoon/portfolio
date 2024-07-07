@@ -100,17 +100,17 @@ export default class Sun extends Celestial {
     });
 
     surfaceParticles.minSize = 4;
-    surfaceParticles.maxSize = 24;
+    surfaceParticles.maxSize = 26;
 
     flareParticles.minScaleX = 20;
     flareParticles.minScaleY = 20;
-    flareParticles.maxScaleX = 30;
-    flareParticles.maxScaleY = 30;
+    flareParticles.maxScaleX = 35;
+    flareParticles.maxScaleY = 35;
 
-    coronaParticles.minScaleX = 30;
-    coronaParticles.minScaleY = 30;
-    coronaParticles.maxScaleX = 50;
-    coronaParticles.maxScaleY = 50;
+    coronaParticles.minScaleX = 40;
+    coronaParticles.minScaleY = 40;
+    coronaParticles.maxScaleX = 60;
+    coronaParticles.maxScaleY = 60;
 
     flareParticles.addSizeGradient(0, 0);
     flareParticles.addSizeGradient(1, 1);
