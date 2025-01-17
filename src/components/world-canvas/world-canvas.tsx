@@ -12,5 +12,13 @@ export default function WorldCanvas() {
     sceneRef.current = new WorldScene(canvasRef.current);
   }, []);
 
-  return <Box as={"canvas"} ref={canvasRef} w={"100vw"} h={"100vh"} />;
+  return (
+    <Box
+      as={"canvas"}
+      ref={canvasRef}
+      w={"100vw"}
+      h={"100vh"}
+      outline={"none"}
+    />
+  );
 }
