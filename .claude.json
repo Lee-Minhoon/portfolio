@@ -1,5 +1,26 @@
 {
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "superpower": {
+      "command": "npx",
+      "args": ["-y", "superpower-mcp"]
+    },
+    "ponytail": {
+      "command": "npx",
+      "args": ["-y", "ponytail-mcp"]
+    }
+  },
   "permissions": {
-    "allow": ["Bash(yarn lint*)", "Bash(yarn test*)", "Bash(yarn build*)"]
+    "allow": [
+      "Bash(yarn lint)",
+      "Bash(yarn lint:*)",
+      "Bash(yarn test)",
+      "Bash(yarn test:*)",
+      "Bash(yarn build)",
+      "Bash(yarn *)"
+    ]
   }
 }
