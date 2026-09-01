@@ -1,5 +1,5 @@
 {
-  "mcpServers": {
+  "servers": {
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
@@ -12,15 +12,5 @@
       "command": "npx",
       "args": ["-y", "ponytail-mcp"]
     }
-  },
-  "permissions": {
-    "allow": [
-      "Bash(yarn lint)",
-      "Bash(yarn lint:*)",
-      "Bash(yarn test)",
-      "Bash(yarn test:*)",
-      "Bash(yarn build)",
-      "Bash(yarn *)"
-    ]
   }
 }

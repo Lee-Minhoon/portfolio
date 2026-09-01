@@ -1,0 +1,10 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "yarn lint": true,
+    "/^yarn lint\\b.*/": true,
+    "yarn test": true,
+    "/^yarn test\\b.*/": true,
+    "yarn build": true,
+    "/^yarn\\b.*/": true
+  }
+}
