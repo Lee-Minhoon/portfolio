@@ -1,4 +1,4 @@
-import { Arrow } from "./shared";
+import { Arrow } from "@/components/arrow";
 
 const services = [
   {

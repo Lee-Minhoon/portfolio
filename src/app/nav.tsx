@@ -1,9 +1,10 @@
-import { Arrow, profile } from "./shared";
+import { Arrow } from "@/components/arrow";
+import { profile } from "@/lib/profile";
 
 export default function Nav() {
   return (
     <nav
-      className="sticky top-0 z-30 flex h-[72px] items-center justify-between border-b border-violet-200/10 bg-[#07040d]/55 px-5 backdrop-blur-md sm:px-8 lg:px-16"
+      className="fixed w-full top-0 z-30 flex h-[72px] items-center justify-between border-b border-violet-200/10 bg-[#07040d]/55 px-5 backdrop-blur-md sm:px-8 lg:px-16"
       aria-label="Main navigation"
     >
       <a
@@ -14,6 +15,9 @@ export default function Nav() {
         <span className="text-violet-300">.</span>
       </a>
       <div className="hidden gap-8 text-xs text-violet-100/65 sm:flex">
+        <a className="transition hover:text-white" href="#home">
+          Home
+        </a>
         <a className="transition hover:text-white" href="#skills">
           Skills
         </a>

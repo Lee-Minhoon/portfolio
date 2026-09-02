@@ -1,12 +1,13 @@
-import { Arrow, profile } from "./shared";
+import { Arrow } from "@/components/arrow";
+import { profile } from "@/lib/profile";
 
 export default function Hero() {
   return (
     <section
-      className="flex min-h-[calc(100svh-72px)] items-center px-5 py-16 sm:px-8 lg:px-16"
+      className="flex min-h-[calc(100svh)] items-center px-5 py-16 sm:px-8 lg:px-16"
       id="home"
     >
-      <div className="max-w-2xl border border-white/15 bg-[#080511]/65 p-6 shadow-2xl shadow-black/35 backdrop-blur-sm sm:p-10 lg:p-12">
+      <div className="max-w-2xl border border-white/15 bg-[#080511]/10 p-6 shadow-2xl shadow-black/35 backdrop-blur-xs sm:p-10 lg:p-12">
         <p className="flex items-center gap-2 text-[0.68rem] font-bold tracking-[0.16em] text-emerald-200 uppercase">
           <i className="size-2 rounded-full bg-emerald-300 shadow-[0_0_0_4px_rgba(110,231,183,0.14)]" />
           Available for work
@@ -21,7 +22,7 @@ export default function Hero() {
           <em className="font-serif font-normal text-violet-300">products.</em>
         </h1>
         <p className="mt-7 max-w-xl text-base leading-7 text-violet-100/80 break-keep">
-          안녕하세요, 김민훈입니다. 사용자에게 좋은 경험을 주는 웹 서비스를
+          안녕하세요, 이민훈입니다. 사용자에게 좋은 경험을 주는 웹 서비스를
           만들고, 제품의 문제를 코드로 풀어내는 개발자입니다.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-5">

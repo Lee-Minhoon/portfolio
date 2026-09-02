@@ -1,4 +1,5 @@
-import { Arrow, profile } from "./shared";
+import { Arrow } from "@/components/arrow";
+import { profile } from "@/lib/profile";
 
 export default function Contact() {
   return (
