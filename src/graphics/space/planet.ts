@@ -1,5 +1,7 @@
-import { lerpLogScale } from "@/graphics/utils";
 import { Scene } from "@babylonjs/core";
+
+import { lerpLogScale } from "@/graphics/utils";
+
 import Celestial from "./celestial";
 import solarSystem from "./solar-system";
 

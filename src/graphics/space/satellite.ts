@@ -1,7 +1,8 @@
 import { Scene } from "@babylonjs/core";
+
+import { lerpLogScale } from "../utils";
 import Celestial from "./celestial";
 import solarSystem from "./solar-system";
-import { lerpLogScale } from "../utils";
 
 export default class Satellite extends Celestial {
   private static readonly MinRadius = Math.min(

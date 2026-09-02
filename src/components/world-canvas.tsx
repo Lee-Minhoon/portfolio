@@ -1,5 +1,6 @@
-import { WorldScene } from "@/graphics";
 import { useEffect, useRef } from "react";
+
+import { WorldScene } from "@/graphics";
 
 type WorldCanvasProps = {
   scrollProgress: number;

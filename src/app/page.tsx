@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+
 import WorldCanvas from "@/components/world-canvas";
-import Nav from "./nav";
+
+import Contact from "./contact";
 import Hero from "./hero";
+import Nav from "./nav";
+import Projects from "./projects";
 import Services from "./services";
 import Skills from "./skills";
-import Projects from "./projects";
-import Contact from "./contact";
 
 function Homepage() {
   const [scrollProgress, setScrollProgress] = useState(0);

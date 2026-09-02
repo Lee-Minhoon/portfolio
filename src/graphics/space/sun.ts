@@ -9,6 +9,7 @@ import {
   Texture,
   Vector3,
 } from "@babylonjs/core";
+
 import Celestial from "./celestial";
 
 const surfaceGradients = [

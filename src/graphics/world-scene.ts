@@ -6,6 +6,7 @@ import {
   Scene,
   Vector3,
 } from "@babylonjs/core";
+
 import { Space } from "./space";
 
 export default class WorldScene {
